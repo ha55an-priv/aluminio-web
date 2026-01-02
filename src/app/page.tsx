@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import { SITE, getWhatsAppLink } from "../lib/site";
+import Link from "next/link";
 
 const categories = [
   { title: "Perfiles de aluminio", desc: "Líneas para ventanas, puertas y estructuras." },
@@ -14,13 +15,16 @@ export default function HomePage() {
   return (
     <div className="space-y-16">
       <section className="grid items-center gap-10 md:grid-cols-2">
-        <div className="space-y-5">
-          <p className="text-sm font-medium text-muted-foreground">
+        <div className="max-w-xl space-y-7">
+          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+
             Distribuidora en {SITE.city} 
           </p>
 
-          <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            Perfiles de aluminio y accesorios para soluciones arquitectónicas modernas
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+
+            Perfiles de aluminio y accesorios para soluciones arquitectónicas{" "}
+            <span className="text-[var(--brand)]">modernas</span>
           </h1>
 
           <p className="text-base text-muted-foreground md:text-lg">
@@ -28,7 +32,7 @@ export default function HomePage() {
             Stock, asesoría y atención rápida para talleres y proyectos.
           </p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 pt-4">
             <a
               className="rounded-xl bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
               href={getWhatsAppLink()}
@@ -39,40 +43,60 @@ export default function HomePage() {
             </a>
 
             <a
-              className="rounded-xl border px-5 py-3 text-sm font-medium transition hover:bg-muted"
+              className="rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-medium text-foreground transition hover:border-[var(--brand)] hover:bg-[var(--brand-soft)]"
+
               href="/productos"
             >
               Ver productos
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-6 pt-4 text-sm text-muted-foreground">
-            <div>
+          <div className="flex flex-wrap gap-4 pt-6">
+            <div className="rounded-xl border border-black/5 bg-white px-4 py-3 text-sm">
               <p className="font-medium text-foreground">Enfoque B2B</p>
-              <p>Talleres y proyectos</p>
+              <p className="text-muted-foreground">Talleres y proyectos</p>
             </div>
-            <div>
+
+            <div className="rounded-xl border border-black/5 bg-white px-4 py-3 text-sm">
               <p className="font-medium text-foreground">Atención rápida</p>
-              <p>Consultas por WhatsApp</p>
+              <p className="text-muted-foreground">Consultas por WhatsApp</p>
             </div>
-            <div>
+
+            <div className="rounded-xl border border-black/5 bg-white px-4 py-3 text-sm">
               <p className="font-medium text-foreground">Escalable</p>
-              <p>Reservas a futuro</p>
+              <p className="text-muted-foreground">Reservas a futuro</p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border bg-muted/30 p-8">
-          <div className="rounded-2xl border bg-white p-6">
-            <p className="text-sm font-semibold">Cotización rápida</p>
+        <div className="rounded-2xl border border-black/5 bg-muted/30 p-8 shadow-sm">
+
+          <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
+
+            <p className="text-sm font-semibold">
+              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-[var(--brand)]" />
+              Cotización rápida
+            </p>
             <p className="mt-2 text-sm text-muted-foreground">
               Envíanos medidas, tipo de sistema y ubicación. Te respondemos con opciones y disponibilidad.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>• Tipo: ventana / puerta / fachada / box baño / templado</li>
-              <li>• Medidas aproximadas</li>
-              <li>• Color o acabado (si aplica)</li>
-              <li>• Zona ({SITE.city} / otra)</li>
+              <li className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
+                <span>Tipo: ventana / puerta / fachada / box baño / templado</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
+                <span>Medidas aproximadas</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
+                <span>Color o acabado (si aplica)</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
+                <span>Zona ({SITE.city} / otra)</span>
+              </li>
             </ul>
 
             <a
@@ -97,11 +121,17 @@ export default function HomePage() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((c) => (
-            <div key={c.title} className="rounded-2xl border bg-white p-6">
-              <p className="text-sm font-semibold">{c.title}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
-            </div>
-          ))}
+  <Link
+    key={c.title}
+    href="/productos"
+    className="group block rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2"
+      >
+        <span className="mb-3 block h-0.5 w-8 rounded-full bg-muted transition group-hover:bg-[var(--brand)]" />
+        <p className="text-sm font-semibold">{c.title}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
+      </Link>
+    ))}
+
         </div>
       </section>
 

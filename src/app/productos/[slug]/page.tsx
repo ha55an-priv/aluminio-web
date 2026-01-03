@@ -1,19 +1,26 @@
 // src/app/productos/[slug]/page.tsx
 import Link from "next/link";
-import { CATALOG, COLORS, type ColorKey } from "../../../lib/catalog";
+import { CATALOG } from "../../../lib/catalog";
 import { SITE, getWhatsAppLink } from "../../../lib/site";
-
-type Props = {
-  params: { slug: string };
-};
+import ProductItemCard from "../../../components/ProductItemCard";
 
 function buildWhatsAppMessage(lineTitle: string) {
   // Mensaje simple y B2B (sin precios)
   return `Hola, quiero cotizar ${lineTitle}. Estoy en ${SITE.city}. ¿Qué disponibilidad y opciones tienen?`;
 }
 
-export default function ProductLinePage({ params }: Props) {
-  const line = CATALOG.find((l) => l.slug === params.slug);
+export default async function ProductLinePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const incomingSlug = decodeURIComponent(slug).trim().toLowerCase();
+
+  const line = CATALOG.find(
+    (l) => l.slug.trim().toLowerCase() === incomingSlug
+  );
 
   if (!line) {
     return (
@@ -22,6 +29,7 @@ export default function ProductLinePage({ params }: Props) {
         <p className="text-sm text-muted-foreground">
           Revisa el catálogo o vuelve a la lista de productos.
         </p>
+
         <Link
           className="inline-flex rounded-xl border border-black/10 bg-white px-4 py-2 text-sm font-medium transition hover:border-[var(--brand)] hover:bg-[var(--brand-soft)]"
           href="/productos"
@@ -57,7 +65,9 @@ export default function ProductLinePage({ params }: Props) {
         </h1>
 
         {line.subtitle ? (
-          <p className="text-sm text-muted-foreground md:text-base">{line.subtitle}</p>
+          <p className="text-sm text-muted-foreground md:text-base">
+            {line.subtitle}
+          </p>
         ) : null}
 
         <div className="flex flex-wrap gap-3 pt-2">
@@ -79,47 +89,25 @@ export default function ProductLinePage({ params }: Props) {
         </div>
 
         <p className="max-w-2xl text-sm text-muted-foreground">
-          Precios no publicados porque varían por color, stock y requerimiento. Envíanos el ítem y el color
-          y te respondemos con opciones y disponibilidad.
+          Precios no publicados porque varían por color, stock y requerimiento.
+          Envíanos el ítem y el color y te respondemos con opciones y disponibilidad.
         </p>
       </section>
 
       {/* Lista de ítems */}
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold tracking-tight">Ítems disponibles</h2>
+        <h2 className="text-xl font-semibold tracking-tight">
+          Ítems disponibles
+        </h2>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {line.items.map((item) => (
-            <div
-              key={item.name}
-              className="group rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <span className="mb-3 block h-0.5 w-8 rounded-full bg-muted transition group-hover:bg-[var(--brand)]" />
-
-              <p className="text-sm font-semibold">{item.name}</p>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {item.colors.map((ck: ColorKey) => (
-                  <span
-                    key={ck}
-                    className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-muted-foreground"
-                  >
-                    {COLORS[ck]}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                className="mt-5 inline-flex w-full justify-center rounded-xl border border-black/10 bg-white px-4 py-2 text-sm font-medium text-foreground transition hover:border-[var(--brand)] hover:bg-[var(--brand-soft)]"
-                href={`${getWhatsAppLink()}&text=${encodeURIComponent(
-                  `Hola, quiero cotizar ${line.title} — ${item.name}. Color: (indicar). Estoy en ${SITE.city}.`
-                )}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Consultar este ítem
-              </a>
-            </div>
+            <ProductItemCard
+              key={item.id}
+              lineTitle={line.title}
+              itemName={item.name}
+              colors={item.colors}
+            />
           ))}
         </div>
       </section>

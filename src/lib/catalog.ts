@@ -34,13 +34,9 @@ export const catalog: CatalogLine[] = [
     subtitle: "Carpintería de Aluminio",
     description: "Sistema corredizo estándar para soluciones residenciales prácticas.",
     items: [
-      { id: "l20-01", name: "Riel Superior L20", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "l20-02", name: "Riel Inferior L20", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "l20-03", name: "Jamba L20", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "l20-04", name: "Pierna L20", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "l20-05", name: "Enganche L20", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "l20-06", name: "Zocalo L20", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "l20-07", name: "Juego L20", colors: ["champan", "negro", "blanco", "madera"] },
+      
+      { id: "l20-04", name: "Pierna L20", colors: ["champan"] },
+      
     ],
   },
   {
@@ -70,6 +66,8 @@ export const catalog: CatalogLine[] = [
       { id: "tub-03", name: "Tubo 40*80", colors: ["champan", "negro", "blanco", "madera"] },
       { id: "tub-04", name: "Tubo 40*40", colors: ["champan", "negro", "blanco"] },
       { id: "tub-05", name: "Tubo 30*30", colors: ["champan", "negro", "blanco"] },
+      { id: "tub-06", name: "Tubo 25*25", colors: ["champan"] },
+
     ],
   },
   {
@@ -82,7 +80,8 @@ export const catalog: CatalogLine[] = [
       { id: "temp-02", name: "Tapa Cabezal", colors: ["champan", "negro", "blanco"] },
       { id: "temp-03", name: "Trillo", colors: ["champan", "negro", "blanco"] },
       { id: "temp-04", name: "Vedapre U", colors: ["champan", "negro", "blanco", "madera"] },
-      { id: "temp-05", name: "Juego Templado", colors: ["champan", "negro", "blanco"] },
+      { id: "temp-05", name: "Vedapre H", colors: ["champan", "negro", "blanco", "madera"] },
+      { id: "temp-06", name: "Juego Templado", colors: ["champan", "negro", "blanco"] },
     ],
   },
   {

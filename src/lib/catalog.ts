@@ -119,6 +119,11 @@ export const catalog: CatalogLine[] = [
     { id: "ACC-FEL25", name: "Felpa L25", colors: ["negro"] },
     { id: "ACC-BUR20", name: "Burlete L20", colors: ["negro"] },
     { id: "ACC-BUR25", name: "Burlete L25", colors: ["negro"] },
+    { id: "ACC-BURColaRata", name: "Burlete Cola de Rata", colors: ["negro"] },
+    { id: "ACC-Bis", name: "Bisagra", colors: ["champan", "negro"] },
+    { id: "ACC-Jal", name: "Jalador de aluminio", colors: ["champan", "negro", "blanco"] },
+    { id: "ACC-JalPlast", name: "Jalador de plástico", colors: [ "negro", "mate"] },
+
   ],
   },
   {

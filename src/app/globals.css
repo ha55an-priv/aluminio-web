@@ -1,8 +1,44 @@
 @import "tailwindcss";
 
-/* Variables de marca: se usan en todo el sitio sin depender del tailwind.config */
+/* ─── Tokens de marca ─────────────────────────────────────────────────────── */
 :root {
-  --brand: #f97316;      /* naranja principal */
-  --brand-dark: #ea580c; /* hover */
-  --brand-soft: #ffedd5; /* fondo suave */
+  /* Naranja corporativo */
+  --brand:        #f97316;
+  --brand-dark:   #ea580c;
+  --brand-soft:   #ffedd5;
+
+  /* Neutrales */
+  --foreground:   #0f172a;
+  --muted:        #f1f5f9;
+  --muted-fg:     #64748b;
+
+  /* Superficies oscuras */
+  --dark-bg:      #0f172a;   /* slate-900 */
+  --dark-bg-2:    #1e293b;   /* slate-800 */
+  --dark-border:  #334155;   /* slate-700 */
+  --dark-footer:  #020617;   /* slate-950 */
 }
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Compatibilidad con clases legacy del proyecto */
+.text-muted-foreground { color: var(--muted-fg); }
+.text-foreground       { color: var(--foreground); }
+.bg-muted              { background-color: var(--muted); }

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- Isotipo: A con swoosh -->
+  <g transform="translate(0, 5)">
+    <!-- Pierna izquierda de la A -->
+    <path d="M18 65L38 10L42 10L22 65Z" fill="white"/>
+    <!-- Pierna derecha de la A -->
+    <path d="M50 65L38 10L42 10L55 65Z" fill="white"/>
+    <!-- Barra horizontal -->
+    <path d="M26 45L48 45L50 40L24 40Z" fill="white"/>
+    <!-- Swoosh curvo grande -->
+    <path d="M5 52C10 40 25 20 40 12C55 5 70 18 52 35C42 44 20 55 5 52Z" fill="white" opacity="0.9"/>
+    <!-- Línea decorativa del swoosh -->
+    <path d="M2 58C15 48 35 30 55 22C68 17 75 25 65 35" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Texto ALUCENTER -->
+  <text x="80" y="38" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="30" fill="white" letter-spacing="1">ALUCENTER</text>
+  <!-- Texto S.R.L. -->
+  <text x="298" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="white">S.R.L.</text>
+
+  <!-- Línea divisora -->
+  <line x1="80" y1="48" x2="340" y2="48" stroke="white" stroke-width="1.5"/>
+
+  <!-- Texto ALUMINIOS & ACCESORIOS -->
+  <text x="82" y="65" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="14" fill="white" letter-spacing="3">ALUMINIOS &amp; ACCESORIOS</text>
+</svg>

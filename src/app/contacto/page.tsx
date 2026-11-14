@@ -25,7 +25,7 @@ const infoItems = [
       </svg>
     ),
     label: "Horario de atención",
-    value: "Lun–Vie 8:00–18:00 · Sáb 8:00–13:00",
+    value: "Lun–Vie 8:00–18:30 · Sáb 8:00–14:00",
   },
   {
     icon: (
